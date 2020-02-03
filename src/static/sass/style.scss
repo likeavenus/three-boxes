@@ -1,0 +1,11 @@
+@import "src/static/sass/basic/common";
+.container {
+
+  @media (min-width: 1024px) {
+  }
+
+  @media (min-width: $laptop) {
+  }
+  @media (min-width: 1440px) {
+  }
+}
