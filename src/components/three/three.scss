@@ -1,0 +1,21 @@
+.canvas__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 70px;
+  z-index: 50;
+  width: 200px;
+}
+
+.canvas__info-item {
+  color: #fff;
+
+  & span {
+    color: lightseagreen;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}

@@ -1,7 +1,11 @@
 extends template/_layout
+include ../components/three/three
 block vars
   - var title = "Three.js";
 
 
 block content
+
+  +three()
+
 
