@@ -26,33 +26,22 @@ export default function three() {
     const light = new THREE.DirectionalLight( 0xffffff, 1 );
     light.position.set( 1, 1, 1 ).normalize();
 
-    const cubesArr = [
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-        new THREE.Mesh(geometry, material),
-    ];
+
+    // for (let i = 0; i < geometry.faces.length; i++) {
+    //     let item = geometry.faces[i];
+    //     item.color.setRGB(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+    // }
+
+    const cubesArr = [];
+    function createBoxes() {
+        const limit = 25;
+        for (let i = 0; i < limit; i++) {
+            cubesArr.push(new THREE.Mesh(geometry, material))
+        }
+        return cubesArr;
+    }
+
+    createBoxes();
 
 
     let marginX = 0;
@@ -93,7 +82,7 @@ export default function three() {
 
         const intersects = raycaster.intersectObjects( scene.children );
 
-        if ( intersects.length > 0 ) {
+        if (intersects.length) {
 
             if (INTERSECTED != intersects[0].object) {
                 if (INTERSECTED) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
@@ -101,7 +90,8 @@ export default function three() {
                 INTERSECTED = intersects[0].object;
                 // INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
                 // INTERSECTED.material.emissive.setHex( 0xff0000 );
-                console.log(intersects[0].object);
+
+
                 numElem.innerHTML = intersects[0].object.name;
             }
 
@@ -113,7 +103,7 @@ export default function three() {
         requestAnimationFrame(animate);
         renderer.render(scene, camera);
 
-        // geometry.elementsNeedUpdate = true;
+        geometry.elementsNeedUpdate = true;
     }
     window.addEventListener( 'click', onClick, false );
     animate();

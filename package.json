@@ -49,5 +49,8 @@
     "jquery": "^3.3.1",
     "normalize-scss": "^7.0.1",
     "three": "^0.113.2"
+  },
+  "scripts": {
+    "deploy": "gh-pages -d build"
   }
 }
