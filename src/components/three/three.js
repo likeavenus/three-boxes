@@ -3,6 +3,7 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 
 export default function three() {
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0xf0f0f0 );
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
     const numElem = document.querySelector('#num');
@@ -19,7 +20,7 @@ export default function three() {
     pageWrapper.appendChild(renderer.domElement);
 
     const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({color: 0x00ff00, vertexColors: THREE.FaceColors});
+    const material = new THREE.MeshLambertMaterial({color: 0x00ff00, vertexColors: THREE.FaceColors});
     const colorHSL = {};
 
     const light = new THREE.DirectionalLight( 0xffffff, 1 );
@@ -94,10 +95,14 @@ export default function three() {
 
         if ( intersects.length > 0 ) {
 
-            if ( INTERSECTED != intersects[0].object ) {
+            if (INTERSECTED != intersects[0].object) {
+                if (INTERSECTED) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+
+                INTERSECTED = intersects[0].object;
+                // INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+                // INTERSECTED.material.emissive.setHex( 0xff0000 );
                 console.log(intersects[0].object);
                 numElem.innerHTML = intersects[0].object.name;
-                INTERSECTED = intersects[0].object;
             }
 
         } else {

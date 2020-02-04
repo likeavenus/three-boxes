@@ -1,5 +1,13 @@
 "use strict";
 
+const ghPages = require('gh-pages');
+const path = require('path');
+
+function deploy(cb) {
+  ghPages.publish(path.join(process.cwd(), './build'), cb);
+}
+exports.deploy = deploy;
+
 // p = plugins, корневой объект нашей сборки для расширения области видимости
 global.p = {
   gulp: require("gulp"),
@@ -34,7 +42,7 @@ if (production) {
 }
 
 
-// For PhpStorm's lovers 
+// For PhpStorm's lovers
 
 p.gulp.task("dev", p.gulp.series(function (done) {
   global.develop = true;
@@ -47,3 +55,5 @@ p.gulp.task("prod", p.gulp.series(function (done) {
   global.production = true;
   done()
 }, "build"));
+
+p.gulp.task("deploy")

@@ -12,6 +12,7 @@
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.24.3",
     "del": "^3.0.0",
+    "gh-pages": "^2.2.0",
     "gulp": "^4.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
@@ -47,9 +48,6 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "normalize-scss": "^7.0.1",
-    "owl.carousel": "^2.3.4",
-    "plyr": "^3.5.6",
-    "three": "^0.113.2",
-    "typed.js": "^2.0.11"
+    "three": "^0.113.2"
   }
 }
