@@ -91,8 +91,10 @@ export default function three() {
                 // INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
                 // INTERSECTED.material.emissive.setHex( 0xff0000 );
 
+                console.log(INTERSECTED);
 
-                numElem.innerHTML = intersects[0].object.name;
+                numElem.innerHTML = INTERSECTED.name;
+
             }
 
         } else {
