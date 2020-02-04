@@ -1,6 +1,12 @@
 "use strict";
 
-const ghpages = require('gh-pages');
+const ghPages = require('gh-pages');
+const path = require('path');
+
+function deploy(cb) {
+  ghPages.publish(path.join(process.cwd(), './build'), cb);
+}
+exports.deploy = deploy;
 
 // p = plugins, корневой объект нашей сборки для расширения области видимости
 global.p = {
