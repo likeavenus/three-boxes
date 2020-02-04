@@ -5,17 +5,30 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 70px;
+  top: 20px;
   z-index: 50;
   width: 200px;
+
+  @media (min-width: $tablet) {
+    width: 500px;
+    top: 70px;
+  }
 }
 
 .canvas__info-item {
-  color: #fff;
+  color: #000;
 
   & span {
-    color: lightseagreen;
+    color: #f92626;
     font-weight: bold;
-    font-size: 15px;
+
+  }
+
+  @media (min-width: $tablet) {
+    font-size: 40px;
+
+    & span {
+      font-size: 41px;
+    }
   }
 }
