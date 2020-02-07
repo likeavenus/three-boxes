@@ -27,11 +27,6 @@ export default function three() {
     light.position.set( 1, 1, 1 ).normalize();
 
 
-    // for (let i = 0; i < geometry.faces.length; i++) {
-    //     let item = geometry.faces[i];
-    //     item.color.setRGB(Math.random() * 2, Math.random() * 2, Math.random() * 2);
-    // }
-
     const cubesArr = [];
     function createBoxes() {
         const limit = 25;
@@ -66,8 +61,6 @@ export default function three() {
 
 
     camera.position.z = 21;
-    // scene.children[0].geometry.faces[0].color.setHSL(5, colorHSL.s, colorHSL.l);
-    // scene.children[0].geometry.faces[1].color.setHSL(colorHSL.h, colorHSL.s, colorHSL.l);
 
 
     function onClick(event) {
@@ -84,13 +77,10 @@ export default function three() {
 
         if (intersects.length) {
 
-            if (INTERSECTED != intersects[0].object) {
+            if (INTERSECTED !== intersects[0].object) {
                 if (INTERSECTED) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
 
                 INTERSECTED = intersects[0].object;
-                // INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-                // INTERSECTED.material.emissive.setHex( 0xff0000 );
-
 
                 numElem.innerHTML = intersects[0].object.name;
             }
