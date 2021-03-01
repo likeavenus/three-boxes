@@ -48,7 +48,7 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "normalize-scss": "^7.0.1",
-    "three": "^0.113.2"
+    "three": "^0.125.0"
   },
   "scripts": {
     "deploy": "gh-pages -d build"
